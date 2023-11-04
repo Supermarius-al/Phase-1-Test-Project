@@ -1,5 +1,8 @@
+let table = document.getElementById("workout-routine")
+let sets = document.getElementById('sets')
 document.addEventListener("DOMContentLoaded", () => {
 const submitBtn = document.querySelector("#workout-submit")
+renderMaintain()
 
 const form = document.getElementById("workout_select")
 submitBtn.addEventListener('click', (e) =>{
@@ -8,8 +11,28 @@ let workoutSelect = document.querySelector('input[type="radio"]:checked').value
 })
 })
 
-function renderMaintain(){
-    fetch("http://localhost:3000/workoutTypes")
+async function renderMaintain(){
+ let data = await fetch("http://localhost:3000/workoutTypes")
     .then(resp => resp.json())
-    .then(data => console.log(data))
+    .then(data =>  data)
+let maintainObj = data[2]
+let { exercises } = maintainObj
+exercises.flat()
+let { dayOne, dayTwo, dayThree } = exercises[0]
+console.log(dayOne)
+let sets = Object.values(dayOne)
+console.log(sets)
+
+sets.forEach(set => createTable(set))
+
+// let { exercises } = data
+
+}
+
+
+function createTable(x){
+   let td = document.createElement('tr')
+    td.innerHTML = `<td>${x}</td>`
+    table.appendChild(td)
+    
 }

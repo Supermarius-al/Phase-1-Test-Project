@@ -2,3 +2,11 @@ div {
     align-items: center;
     position: relative;
 }
+
+.center {
+    text-align: center;
+  }
+  
+  .padding {
+    padding: 5px;
+  }

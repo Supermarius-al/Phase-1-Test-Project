@@ -20,9 +20,10 @@ let { exercises } = maintainObj
 exercises.flat()
 let { dayOne, dayTwo, dayThree } = exercises[0]
 console.log(dayOne)
-let sets = Object.values(dayOne)
-console.log(sets)
 
+let sets = Object.values(dayOne)
+let exercise = Object.keys(dayOne)
+exercise.forEach(x => createTable(x))
 sets.forEach(set => createTable(set))
 
 // let { exercises } = data
@@ -30,9 +31,9 @@ sets.forEach(set => createTable(set))
 }
 
 
-function createTable(x){
+function createTable(x, y){
    let td = document.createElement('tr')
-    td.innerHTML = `<td>${x}</td>`
+    td.innerHTML = `<td>${x}</td><td>${y}</td>`
     table.appendChild(td)
     
 }

@@ -18,3 +18,4 @@ datafrom
 Builtstrength.com.au - gain muscle
 lose fat https://www.muscleandstrength.com/workouts/12-week-fat-destroyer
 MAintain - exercise - https://www.muscleandstrength.com/workouts/troys-3-day-maintenance-workout.html
+https://barbend.com/best-lower-body-workouts/

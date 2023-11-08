@@ -43,7 +43,15 @@
               "JM Press(skull crusher)": 0,
               "Cable Triceps Pushdown": 0
         }
-        }]
+        },
+      {"id": 3,
+      "name": "maintain",
+      "exercises":{
+        "tv": "netflix"
+      },
+      "Hours": {
+        "Hours Watched": 0
+      }}]
     }
 
             

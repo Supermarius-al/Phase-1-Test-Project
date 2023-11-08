@@ -15,14 +15,13 @@ async function renderMaintain(){
  let data = await fetch("http://localhost:3000/workoutTypes")
     .then(resp => resp.json())
     .then(data =>  data)
-let maintainObj = data[2]
-let { exercises } = maintainObj
+console.log(data)
+let { exercises } = upperBody
 exercises.flat()
-let { dayOne, dayTwo, dayThree } = exercises[0]
-console.log(dayOne)
 
-let sets = Object.values(dayOne)
-let exercise = Object.keys(dayOne)
+
+let sets = Object.values(exercises)
+let exercise = Object.keys(exercises)
 exercise.forEach(x => createTable(x))
 sets.forEach(set => createTable(set))
 

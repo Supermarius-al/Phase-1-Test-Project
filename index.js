@@ -35,9 +35,14 @@ createTable(exercise, sets)
 
 
 function createTable(x, y){
-   let tr = document.createElement('tr')
-    tr.innerHTML = `<td><ul><li> ${x} </li></td><br><td> ${y} </td>`
+   
+   for(let i = 0; i < x.length; i++ ) {
+    console.log(x)
+    let tr = document.createElement('tr')
+    tr.innerHTML = `<td><ul><li> ${x[i]} </li></td><td> ${y[i]} </td>`
     table.append(tr)
+  }
+   
 
     
 }

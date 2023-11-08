@@ -2,7 +2,7 @@ let table = document.getElementById("workout-routine")
 let sets = document.getElementById('sets')
 document.addEventListener("DOMContentLoaded", () => {
 const submitBtn = document.querySelector("#workout-submit")
-renderMaintain()
+renderUpperBody()
 
 const form = document.getElementById("workout_select")
 submitBtn.addEventListener('click', (e) =>{
@@ -11,28 +11,33 @@ let workoutSelect = document.querySelector('input[type="radio"]:checked').value
 })
 })
 
-async function renderMaintain(){
+async function renderUpperBody(){
  let data = await fetch("http://localhost:3000/workoutTypes")
     .then(resp => resp.json())
     .then(data =>  data)
-console.log(data)
-let { exercises } = upperBody
-exercises.flat()
+let { exercises } = data[1]
+console.log(exercises)
 
 
 let sets = Object.values(exercises)
 let exercise = Object.keys(exercises)
-exercise.forEach(x => createTable(x))
-sets.forEach(set => createTable(set))
+console.log(sets)
 
+console.log(exercise)
+createTable(exercise, sets)
+
+//let x = exercise.forEach(x => createTable(x))
+//let y = sets.forEach(set => createTable(set))
+//createTable(x, y)
 // let { exercises } = data
 
 }
 
 
 function createTable(x, y){
-   let td = document.createElement('tr')
-    td.innerHTML = `<td>${x}</td><td>${y}</td>`
-    table.appendChild(td)
+   let tr = document.createElement('tr')
+    tr.innerHTML = `<td><ul><li> ${x} </li></td><br><td> ${y} </td>`
+    table.append(tr)
+
     
 }

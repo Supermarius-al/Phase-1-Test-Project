@@ -1,48 +1,65 @@
 let table = document.getElementById("workout-routine")
 let sets = document.getElementById('sets')
 document.addEventListener("DOMContentLoaded", () => {
-const submitBtn = document.querySelector("#workout-submit")
-renderUpperBody()
+const selectBtn = document.querySelector("#workout-select")
+
 
 const form = document.getElementById("workout_select")
-submitBtn.addEventListener('click', (e) =>{
+selectBtn.addEventListener('click', (e) =>{
 e.preventDefault()
+
 let workoutSelect = document.querySelector('input[type="radio"]:checked').value
+console.log(workoutSelect)
+selection(workoutSelect)
+
 })
 })
+function selection(x){
+    if(x == "upperBody") {renderUpperBody()}
+    else if(x == "lowerBody"){
+        renderLowerBody()}
+    }
 
 async function renderUpperBody(){
  let data = await fetch("http://localhost:3000/workoutTypes")
     .then(resp => resp.json())
     .then(data =>  data)
-let { exercises } = data[1]
-console.log(exercises)
-
+let { exercises, tracking } = data[1]
+let wgtAmts = Object.values(tracking)
 
 let sets = Object.values(exercises)
 let exercise = Object.keys(exercises)
-console.log(sets)
-
-console.log(exercise)
-createTable(exercise, sets)
-
-//let x = exercise.forEach(x => createTable(x))
-//let y = sets.forEach(set => createTable(set))
-//createTable(x, y)
-// let { exercises } = data
-
+createTable(exercise, sets, wgtAmts)
 }
-
-
-function createTable(x, y){
+async function renderLowerBody(){
+    let data = await fetch("http://localhost:3000/workoutTypes")
+       .then(resp => resp.json())
+       .then(data =>  data)
+       data = data.flat() 
+   let { exercises, tracking } = data[0]
+   let wgtAmts = Object.values(tracking)
    
+   let sets = Object.values(exercises)
+   let exercise = Object.keys(exercises)
+   createTable(exercise, sets, wgtAmts)
+   }
+
+
+
+function createTable(x, y, z){
+let tData = document.querySelectorAll(".tData")
+
    for(let i = 0; i < x.length; i++ ) {
-    console.log(x)
     let tr = document.createElement('tr')
-    tr.innerHTML = `<td><ul><li> ${x[i]} </li></td><td> ${y[i]} </td>`
+    tr.setAttribute("class", "tData")
+    tr.innerHTML = ``
+    tr.innerHTML = 
+    `<td class="padding">${x[i]}</td>
+    <td class="padding">${y[i]}</td>
+    <td class="padding">${z[i]}</td>
+    <input type="text" name="name" placeholder="LBs" value="" />
+    <td class="padding"><button>Edit</button></td>`
     table.append(tr)
-  }
-   
-
-    
+  }  
 }
+document.querySelector("#workout-routine > tr:nth-child(1) > td:nth-child(1)")

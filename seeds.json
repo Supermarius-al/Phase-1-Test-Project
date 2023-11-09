@@ -12,7 +12,7 @@
         "Calf Raise": "4 sets of 15-20",
         "Dumbbell Curl": "3 sets of 10-12"  
     },
-    "Weight tracker":{
+    "tracking":{
       "Squat Clean": 0,
       "Box Jump": 0,
       "Lateral bounds": 0,
@@ -35,7 +35,7 @@
               "JM Press(skull crusher)": "3 set of 6",
               "Cable Triceps Pushdown": "3 sets of 8"
               },
-        "Weight tracker": {
+        "tracking": {
               "Bench Press": 0,
               "Bent over Barbell Row": 0,
               "Barbell Overhead Press": 0,

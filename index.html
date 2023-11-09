@@ -16,16 +16,16 @@
           <legend>What type of Exercise are you looking for?</legend>
 
             <div>
-            <input type="radio" id="workoutLW" name="workout-select" value="workoutLW">
-            <label for="workoutLW">Upper Body</label>
-            <input type="radio" id="workoutGain" name="workout-select" value="workoutGain">
-            <label for="workoutGain">Lower Body</label>
+            <input type="radio" id="upperBody" name="workout-select" value="upperBody">
+            <label for="upperBody">Upper Body</label>
+            <input type="radio" id="workoutGain" name="workout-select" value="lowerBody">
+            <label for="lowerBody">Lower Body</label>
             <input type="radio" id="maintain" name="workout-select" value="maintain">
             <label for="workoutM">I'm Good Where I'm At</label>
             </div>
         </div>
         <div>
-            <button id="workout-submit">Submit</button>
+            <button id="workout-select">Select</button>
         </div>
     </fieldset>
 </form>
@@ -35,7 +35,7 @@
         <tr>
             <th class="padding center">Exercise</th>
             <th class="padding center">Sets</th>
-            <th class="padding center">Days a Week</th>
+            <th class="padding center">Amount</th>
         </tr>
     </thead>
     <tbody id="workout-routine">

@@ -5,9 +5,9 @@ Marius’ Phase 1 Project
 •	Challenges you expect to face
 •	How you are meeting the requirements of the project
 
-•	Basic Story:  I’d like to build a generic fitness page for users based on a selection of their goals (lose weight, gain weight, maintain weight) then provide them with a a work out regime that meets their goal
+•	Basic Story:  I’d like to build a generic fitness page for users to get a work out plan (upper body and lower body workouts) then provide them with a a work out regime that meets their goal
 •	Features:
-o	 Provide users a basic program based on their goal
+o	 Provide users a basic program to follow
 o	Allow users to keep track of amount lifted or distances run
 •	API Data would be self written JSON
 •	Challenges I expect are going to be on the API side and how indepth the fitness portions will be

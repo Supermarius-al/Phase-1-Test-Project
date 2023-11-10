@@ -57,9 +57,16 @@ let tData = document.querySelectorAll(".tData")
     `<td class="padding">${x[i]}</td>
     <td class="padding">${y[i]}</td>
     <td class="padding">${z[i]}</td>
-    <input type="text" name="name" placeholder="LBs" value="" />
-    <td class="padding"><button>Edit</button></td>`
+    <form id="update-form>
+        <td class="padding">
+            <input type="text" name="weights" placeholder="LBs" value>
+            <input type="submit" value="Update">
+        </td>
+    </form>`
     table.append(tr)
   }  
 }
-document.querySelector("#workout-routine > tr:nth-child(1) > td:nth-child(1)")
+
+function updateLbs(){
+    
+}

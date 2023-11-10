@@ -68,5 +68,16 @@ let tData = document.querySelectorAll(".tData")
 }
 
 function updateLbs(){
-    
+    await fetch("http://localhost:3000/workoutTypes", {
+        method: "PATCH",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+                },
+        body: JSON.stringify({
+            lift[i]
+        })
+        }
+    }
+    )
 }

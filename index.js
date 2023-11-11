@@ -4,7 +4,7 @@ let sets = document.getElementById('sets')
 
 document.addEventListener("DOMContentLoaded", () => {
 const selectBtn = document.querySelector("#workout-select")
-
+testFunction()
 
 selectBtn.addEventListener('click', (e) =>{
 e.preventDefault()
@@ -82,15 +82,19 @@ let updateBtns = document.getElementsByClassName("update-form")
 
 
 function updateTracking(update, i){
-     fetch("http://localhost:3000/workoutTypes", {
+     fetch(`http://localhost:3000/workoutTypes/${i}`, {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
                 },
         body: JSON.stringify({
-            "lift[i]": update
-        })})
-        }
-
-        
+            lower: {
+                track :  update
+            }})})}
+async function testFunction(){
+    let data = await fetch("http://localhost:3000/workoutTypes/0")
+        .then(resp => resp.json())
+        .then(data =>  data)
+        console.log(data)
+    console.log(data.lowerBody)}

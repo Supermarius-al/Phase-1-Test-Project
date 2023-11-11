@@ -1,8 +1,7 @@
 {
   "workoutTypes": [
    {"id": 0,
-    "lowerBody":
-    {
+   "type": "lowerBody",
       "exercises": 
       {
         "Squat Clean": "5 sets of 3",
@@ -20,14 +19,9 @@
       "lift4": 0,
       "lift5": 0,
       "lift6": 0
-     }
-    }
-  },
-  
-  {"id": 1,
-    "upperBody": 
-    {
-      "exercises": 
+     }},
+  {"type": "upperBody",
+    "exercises": 
            {
               "Bench Press": "3 sets of 5",
               "Bent over Barbell Row": "5 sets of 5",
@@ -45,8 +39,7 @@
               "lift5": 0,
               "lift6": 0
         }
-        }
-      },
+        },
       {
         "id": 2,
     "maintain":{

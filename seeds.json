@@ -24,9 +24,9 @@
     }
   },
   
-  {
+  {"id": 2,
     "upperBody": 
-    {"id": 2,
+    {
       "exercises": 
            {
               "Bench Press": "3 sets of 5",

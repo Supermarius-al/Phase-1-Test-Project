@@ -49,26 +49,39 @@ createTable(exercise, sets, wgtAmts)
 
 
 function createTable(x, y, z){
+    table.replaceChildren()
+        for(let i = 0; i < x.length; i++ ) {
+            let tr = document.createElement('tr')
+            tr.setAttribute("class", "tData")
+             tr.innerHTML = 
+         `<td class="padding">${x[i]}</td>
+         <td class="padding">${y[i]}</td>
+         <td class="padding">${z[i]}</td>
+         <td class="padding">
+         <form class="update-form" id="${[i]}"> 
+         <input type="text" name="weight${[i]}" placeholder="LBs" value>
+         <input type="submit" value="Update">
+         </form>
+        </td>`
 
-table.replaceChildren()
-   for(let i = 0; i < x.length; i++ ) {
-    let tr = document.createElement('tr')
-    tr.setAttribute("class", "tData")
-    tr.innerHTML = 
-    `<td class="padding">${x[i]}</td>
-    <td class="padding">${y[i]}</td>
-    <td class="padding">${z[i]}</td>
-    <form id="update-form>
-        <td class="padding">
-            <input type="text" name="weights" placeholder="LBs" value>
-            <input type="submit" value="Update">
-        </td>
-    </form>`
     table.appendChild(tr)
-  }  
+  }
+
+let updateBtns = document.getElementsByClassName("update-form")
+ for(let i = 0; i < x.length; i++)
+  updateBtns[i].addEventListener('submit', (e) => {
+    e.preventDefault()
+    let amtData = new FormData(e.target)
+    let update = amtData.get(`weight${[i]}`)
+    console.log(update)
+})
 }
 
-function updateLbs(){
+
+
+
+
+function updateTracking(update, i){
      fetch("http://localhost:3000/workoutTypes", {
         method: "PATCH",
         headers: {
@@ -76,8 +89,8 @@ function updateLbs(){
             'Accept': 'application/json'
                 },
         body: JSON.stringify({
-            lift: 0
+            "lift[i]": update
         })})
         }
-    
+
         

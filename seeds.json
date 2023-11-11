@@ -1,6 +1,6 @@
 {
   "workoutTypes": [
-   {
+   {"id": 1,
     "lowerBody":
     {
       "exercises": 
@@ -26,7 +26,7 @@
   
   {
     "upperBody": 
-    {
+    {"id": 2,
       "exercises": 
            {
               "Bench Press": "3 sets of 5",

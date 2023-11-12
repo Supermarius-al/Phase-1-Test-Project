@@ -4,8 +4,6 @@ let sets = document.getElementById('sets')
 
 document.addEventListener("DOMContentLoaded", () => {
 const selectBtn = document.querySelector("#workout-select")
-testFunction()
-
 selectBtn.addEventListener('click', (e) =>{
 e.preventDefault()
 let workoutSelect = document.querySelector('input[type="radio"]:checked').value
@@ -22,13 +20,14 @@ async function renderUpperBody(){
  let data = await fetch("http://localhost:3000/workoutTypes")
     .then(resp => resp.json())
     .then(data =>  data)
-const upperBodyWorkout = data[1]
-let { upperBody } = upperBodyWorkout
+const upperBody = data[1]
 let { exercises, tracking } = upperBody
+
 let wgtAmts = Object.values(tracking)
 let sets = Object.values(exercises)
 let exercise = Object.keys(exercises)
 createTable(exercise, sets, wgtAmts)
+
 }
 
 
@@ -37,8 +36,7 @@ async function renderLowerBody(){
     let data = await fetch("http://localhost:3000/workoutTypes")
        .then(resp => resp.json())
        .then(data =>  data)
-const lowerBodyWorkout = data[0]
-let { lowerBody } = lowerBodyWorkout
+const lowerBody = data[0]
 let { exercises, tracking } = lowerBody
 let wgtAmts = Object.values(tracking)
 let sets = Object.values(exercises)
@@ -73,7 +71,9 @@ let updateBtns = document.getElementsByClassName("update-form")
     e.preventDefault()
     let amtData = new FormData(e.target)
     let update = amtData.get(`weight${[i]}`)
-    console.log(update)
+    i = [i].toString()
+    console.log(update, i)
+  trackBtn(update, i)
 })
 }
 
@@ -81,20 +81,33 @@ let updateBtns = document.getElementsByClassName("update-form")
 
 
 
-function updateTracking(update, i){
-     fetch(`http://localhost:3000/workoutTypes/${i}`, {
+function trackBtn(update, i){
+    let updateObj = { };
+
+    if (i == 0){
+        updateObj = {0: update}
+    } if (i == 1){
+        updateObj = {1: update}
+    }if (i == 2){
+        updateObj = {2: update}
+    }if (i == 3){
+        updateObj = {3: update}
+    }if (i == 4){
+        updateObj = {5: update}
+    }if (i == 5){
+        updateObj = {5: update}
+    } else (updateObj = undefined)
+console.log(updateObj)
+  /*  fetch(`http://localhost:3000/workoutTypes/${i}`, {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
                 },
         body: JSON.stringify({
-            lower: {
-                track :  update
-            }})})}
-async function testFunction(){
-    let data = await fetch("http://localhost:3000/workoutTypes/0")
-        .then(resp => resp.json())
-        .then(data =>  data)
-        console.log(data)
-    console.log(data.lowerBody)}
+            tracking: {
+                0: update
+            }}
+            )})
+            */
+        }

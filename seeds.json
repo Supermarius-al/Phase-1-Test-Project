@@ -1,58 +1,43 @@
 {
   "workoutTypes": [
-   {"id": 0,
-   "type": "lowerBody",
-      "exercises": 
-      {
+    {
+      "id": 0,
+      "type": "lowerBody",
+      "exercises": {
         "Squat Clean": "5 sets of 3",
         "Box Jump": "4 sets of 10-15",
         "Lateral bounds": "4 sets of 10-15",
         "Jumping Lunge": "4 sets of 15",
         "Calf Raise": "4 sets of 15-20",
-        "Dumbbell Curl": "3 sets of 10-12"  
+        "Dumbbell Curl": "3 sets of 10-12"
+      },
+      "tracking": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
     },
-   "tracking":
-      {
-      "lift1": 0,
-      "lift2": 0,
-      "lift3": 0,
-      "lift4": 0,
-      "lift5": 0,
-      "lift6": 0
-     }},
-  {"type": "upperBody",
-    "exercises": 
-           {
-              "Bench Press": "3 sets of 5",
-              "Bent over Barbell Row": "5 sets of 5",
-              "Barbell Overhead Press": "3 sets of 6",
-              "Weighted Pull-Up": "3 sets of 5-8",
-              "JM Press(skull crusher)": "3 set of 6",
-              "Cable Triceps Pushdown": "3 sets of 8"
-              },
-        "tracking": 
-        {
-              "lift1": 0,
-              "lift2": 0,
-              "lift3": 0,
-              "lift4": 0,
-              "lift5": 0,
-              "lift6": 0
-        }
-        },
-      {
-        "id": 2,
-    "maintain":{
-      "exercises":
-          {
-            "tv": "netflix"
-            },
-    "tracking": {
-        "Hours Watched": 0
+    {
+      "type": "upperBody",
+      "exercises": {
+        "Bench Press": "3 sets of 5",
+        "Bent over Barbell Row": "5 sets of 5",
+        "Barbell Overhead Press": "3 sets of 6",
+        "Weighted Pull-Up": "3 sets of 5-8",
+        "JM Press(skull crusher)": "3 set of 6",
+        "Cable Triceps Pushdown": "3 sets of 8"
+      },
+      "tracking": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
       }
-      }
-      }
-          ]
     }
-
-            
+  ]
+}

@@ -45,42 +45,42 @@
     {
       "id": 6,
       "category": "upperBody",
-      "exercise":"Bench Press",
+      "exercise": "Bench Press",
       "reps": "3 sets of 5",
-      "weight": 0
+      "weight": "5"
     },
     {
       "id": 7,
       "category": "upperBody",
-      "exercise":"Bent over Barbell Row",
+      "exercise": "Bent over Barbell Row",
       "reps": "5 sets of 5",
       "weight": 0
     },
     {
       "id": 8,
       "category": "upperBody",
-      "exercise":"Barbell Overhead Press",
+      "exercise": "Barbell Overhead Press",
       "reps": "3 sets of 6",
       "weight": 0
     },
     {
       "id": 9,
       "category": "upperBody",
-      "exercise":"Weighted Pull-Up",
+      "exercise": "Weighted Pull-Up",
       "reps": "3 sets of 5-8",
       "weight": 0
     },
     {
       "id": 10,
       "category": "upperBody",
-      "exercise":"JM Press(skull crusher)",
+      "exercise": "JM Press(skull crusher)",
       "reps": "3 set of 6",
       "weight": 0
     },
     {
       "id": 11,
       "category": "upperBody",
-      "exercise":"Cable Triceps Pushdown",
+      "exercise": "Cable Triceps Pushdown",
       "reps": "3 sets of 8",
       "weight": 0
     }

@@ -8,7 +8,7 @@ selectBtn.addEventListener('click', (e) =>{
 
 
 let workoutSelect = document.querySelector('input[type="radio"]:checked').value
-
+table.innerHTML = ``
 selection(workoutSelect)
 e.preventDefault()
 })})
@@ -62,8 +62,9 @@ async function createTable(exerciseObj){
          `<td class="padding">${exerciseObj.exercise}</td>
          <td class="padding">${exerciseObj.reps}</td>
          <td class="padding">${exerciseObj.weight}</td>
-         <td class="padding"><form id='weightForm'>
-         <input type="text" name="weight"/>
+         <td class="padding">
+         <form id='${exerciseObj.id}'>
+         <input type="text" id="weight"/>
          <input type="submit" value="Update"/>
        </form>
         </td>`
@@ -71,25 +72,31 @@ async function createTable(exerciseObj){
     table.append(tr)
    
   }
-  let tableData = document.querySelectorAll('.tData')
-let updateBtns = document.getElementsByClassName("update-form")
+
+let weight = document.getElementById(`${exerciseObj.id}`)
+weight.addEventListener('submit', (e) => {
+e.preventDefault()
+let weightUpdate = document.getElementById('weight')
+exerciseObj.weight = weightUpdate.value
+updateAmount(exerciseObj)
+selection(workoutSelect)
+})
+
 
 }
 
 
-/// add
+async function updateAmount(exerciseObj){
+  await fetch(`http://localhost:3000/workoutTypes/${exerciseObj.id}`,{
+       method: 'PATCH',
+       headers: {
+           'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({
+           "weight": exerciseObj.weight})
+         })
+   .then(resp => resp.json())
+  .then(exerciseObj => console.log(exerciseObj))}
 
 
-//function patchRequest(updateObj, x)
-//    e.preventDefault()
-// fetch(`http://localhost:3000/workoutTypes/${x}`, {
-  //      method: "PATCH",
-  //      headers: {
-  //          'Content-Type': 'application/json',
-  //          'Accept': 'application/json'
-  //              },
-  //      body: JSON.stringify(updateObj)
-  //          }
-  //          )
-  //      .then(res => res.json())
- //       .then(data => console.log(data))}
+  document.querySelector("#\\36  > input[type=submit]:nth-child(2)")

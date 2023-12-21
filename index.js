@@ -40,12 +40,14 @@ async function fetchLowerBody(){
 
 async function renderUpperBody(exerciseObj){
   if(exerciseObj.category == 'upperBody'){
-   createTable(exerciseObj)}
+    let upperBodyArr = exerciseObj
+   createTable(upperBodyArr)}
 }
 
 async function renderLowerBody(exerciseObj){{
   if(exerciseObj.category == 'lowerBody'){
-   createTable(exerciseObj)}}
+   let lowerBodyArr = exerciseObj
+   createTable(lowerBodyArr)}}
 }
 
 
@@ -54,7 +56,7 @@ async function renderLowerBody(exerciseObj){{
 
 
 async function createTable(exerciseObj){
-    
+    console.log(exerciseObj)
        {
             let tr = document.createElement('tr')
             tr.setAttribute("class", "tData")
@@ -68,9 +70,7 @@ async function createTable(exerciseObj){
          <input type="submit" value="Update"/>
        </form>
         </td>`
-
     table.append(tr)
-   
   }
 
 let weight = document.getElementById(`${exerciseObj.id}`)
@@ -78,8 +78,7 @@ weight.addEventListener('submit', (e) => {
 e.preventDefault()
 let weightUpdate = document.getElementById('weight')
 exerciseObj.weight = weightUpdate.value
-updateAmount(exerciseObj)
-selection(workoutSelect)
+console.log(exerciseObj)
 })
 
 
@@ -93,10 +92,9 @@ async function updateAmount(exerciseObj){
            'Content-Type': 'application/json'
        },
        body: JSON.stringify({
-           "weight": exerciseObj.weight})
+           "weight": "exerciseObj.weight"})
          })
    .then(resp => resp.json())
   .then(exerciseObj => console.log(exerciseObj))}
 
 
-  document.querySelector("#\\36  > input[type=submit]:nth-child(2)")

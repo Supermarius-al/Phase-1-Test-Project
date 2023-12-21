@@ -3,7 +3,7 @@ let sets = document.getElementById('sets')
 const selectBtn = document.getElementById('workout-select')
 
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", (e) => {e.preventDefault()
 selectBtn.addEventListener('click', (e) =>{
 
 
@@ -13,9 +13,7 @@ selection(workoutSelect)
 e.preventDefault()
 })})
 
-function workoutButton(e){
-    selectBtn.value
-}
+
 
 
 
@@ -40,14 +38,14 @@ async function fetchLowerBody(){
 
 async function renderUpperBody(exerciseObj){
   if(exerciseObj.category == 'upperBody'){
-    let upperBodyArr = exerciseObj
-   createTable(upperBodyArr)}
+  //  let upperBodyArr = exerciseObj
+   createTable(exerciseObj)}
 }
 
 async function renderLowerBody(exerciseObj){{
   if(exerciseObj.category == 'lowerBody'){
-   let lowerBodyArr = exerciseObj
-   createTable(lowerBodyArr)}}
+  // let lowerBodyArr = exerciseObj
+   createTable(exerciseObj)}}
 }
 
 
@@ -56,33 +54,35 @@ async function renderLowerBody(exerciseObj){{
 
 
 async function createTable(exerciseObj){
-    console.log(exerciseObj)
        {
             let tr = document.createElement('tr')
-            tr.setAttribute("class", "tData")
+            tr.setAttribute("id", `row-${exerciseObj.id}`)
              tr.innerHTML = 
          `<td class="padding">${exerciseObj.exercise}</td>
          <td class="padding">${exerciseObj.reps}</td>
-         <td class="padding">${exerciseObj.weight}</td>
+         <td class="padding" id="cell-${exerciseObj.id}">${exerciseObj.weight} pounds</td>
          <td class="padding">
-         <form id='${exerciseObj.id}'>
-         <input type="text" id="weight"/>
+         <form id='form-${exerciseObj.id}'>
+         <input type="text" id='${exerciseObj.id}'/>
          <input type="submit" value="Update"/>
        </form>
         </td>`
     table.append(tr)
   }
 
-let weight = document.getElementById(`${exerciseObj.id}`)
+let weight = document.getElementById(`form-${exerciseObj.id}`)
+
+
 weight.addEventListener('submit', (e) => {
-e.preventDefault()
-let weightUpdate = document.getElementById('weight')
-exerciseObj.weight = weightUpdate.value
-console.log(exerciseObj)
+  console.log(e.target)
+  e.preventDefault();
+  let weightUpdate = e.target[0].value
+  exerciseObj.weight = weightUpdate
+  updateAmount(exerciseObj)
 })
-
-
 }
+
+
 
 
 async function updateAmount(exerciseObj){
@@ -92,9 +92,16 @@ async function updateAmount(exerciseObj){
            'Content-Type': 'application/json'
        },
        body: JSON.stringify({
-           "weight": "exerciseObj.weight"})
+           "weight": exerciseObj.weight})
          })
    .then(resp => resp.json())
-  .then(exerciseObj => console.log(exerciseObj))}
+  .then(data => refreshTable(data))}
+
+  
+
+  async function refreshTable(exerciseObj){ 
+      document.getElementById(`cell-${exerciseObj.id}`).innerHTML =
+      `${exerciseObj.weight} pounds`
+}
 
 

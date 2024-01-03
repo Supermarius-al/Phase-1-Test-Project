@@ -5,7 +5,7 @@
       "category": "lowerBody",
       "exercise": "Squat Clean",
       "reps": "5 sets of 3",
-      "weight": "60"
+      "weight": 0
     },
     {
       "id": 1,
@@ -47,21 +47,21 @@
       "category": "upperBody",
       "exercise": "Bench Press",
       "reps": "3 sets of 5",
-      "weight": "30"
+      "weight": 0
     },
     {
       "id": 7,
       "category": "upperBody",
       "exercise": "Bent over Barbell Row",
       "reps": "5 sets of 5",
-      "weight": "5"
+      "weight": 0
     },
     {
       "id": 8,
       "category": "upperBody",
       "exercise": "Barbell Overhead Press",
       "reps": "3 sets of 6",
-      "weight": "40"
+      "weight": 0
     },
     {
       "id": 9,

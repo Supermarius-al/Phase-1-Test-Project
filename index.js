@@ -38,13 +38,11 @@ async function fetchLowerBody(){
 
 async function renderUpperBody(exerciseObj){
   if(exerciseObj.category == 'upperBody'){
-  //  let upperBodyArr = exerciseObj
    createTable(exerciseObj)}
 }
 
 async function renderLowerBody(exerciseObj){{
   if(exerciseObj.category == 'lowerBody'){
-  // let lowerBodyArr = exerciseObj
    createTable(exerciseObj)}}
 }
 
@@ -60,10 +58,10 @@ async function createTable(exerciseObj){
              tr.innerHTML = 
          `<td class="padding">${exerciseObj.exercise}</td>
          <td class="padding">${exerciseObj.reps}</td>
-         <td class="padding" id="cell-${exerciseObj.id}">${exerciseObj.weight} pounds</td>
+         <td class="padding" id="cell-${exerciseObj.id}" >${exerciseObj.weight} pounds</td>
          <td class="padding">
          <form id='form-${exerciseObj.id}'>
-         <input type="text" id='${exerciseObj.id}'/>
+         <input type="text" placeholder="pounds" id='${exerciseObj.id}'/>
          <input type="submit" value="Update"/>
        </form>
         </td>`
@@ -79,6 +77,7 @@ weight.addEventListener('submit', (e) => {
   let weightUpdate = e.target[0].value
   exerciseObj.weight = weightUpdate
   updateAmount(exerciseObj)
+  weight.reset()
 })
 }
 

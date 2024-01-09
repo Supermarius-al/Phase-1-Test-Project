@@ -5,21 +5,21 @@
       "category": "lowerBody",
       "exercise": "Squat Clean",
       "reps": "5 sets of 3",
-      "weight": 0
+      "weight": "75"
     },
     {
       "id": 1,
       "category": "lowerBody",
       "exercise": "Box Jump",
       "reps": "4 sets of 10-15",
-      "weight": "70"
+      "weight": 0
     },
     {
       "id": 2,
       "category": "lowerBody",
       "exercise": "Lateral bounds",
       "reps": "4 sets of 10-15",
-      "weight": "6"
+      "weight": 0
     },
     {
       "id": 3,
@@ -47,7 +47,7 @@
       "category": "upperBody",
       "exercise": "Bench Press",
       "reps": "3 sets of 5",
-      "weight": 0
+      "weight": "30"
     },
     {
       "id": 7,

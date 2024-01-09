@@ -9,45 +9,21 @@ selectBtn.addEventListener('click', (e) =>{
 
 let workoutSelect = document.querySelector('input[type="radio"]:checked').value
 table.innerHTML = ``
-selection(workoutSelect)
+fetchData(workoutSelect)
 e.preventDefault()
 })})
 
-
-
-
-
-async function selection(workoutSelect){
-
-    if (workoutSelect == "upperBody") {fetchUpperBody()}
-    if(workoutSelect == "lowerBody"){
-        fetchLowerBody()}}
-
-async function fetchUpperBody(){
+async function fetchData(workoutSelect){
+  let dataArr
   await fetch("http://localhost:3000/workoutTypes")
     .then(resp => resp.json())
-    .then(upperBodyArr =>  upperBodyArr.forEach(renderUpperBody))
-}
+    .then(data => dataArr = data)
 
-
-async function fetchLowerBody(){
-  await fetch("http://localhost:3000/workoutTypes")
-  .then(resp => resp.json())
-  .then(lowerBodyArr =>  lowerBodyArr.forEach(renderLowerBody))
-}
-
-async function renderUpperBody(exerciseObj){
-  if(exerciseObj.category == 'upperBody'){
-   createTable(exerciseObj)}
-}
-
-async function renderLowerBody(exerciseObj){{
-  if(exerciseObj.category == 'lowerBody'){
-   createTable(exerciseObj)}}
-}
-
-
-
+  let upperBody = dataArr.filter((dataObj => dataObj.category == 'upperBody'))
+  let lowerBody = dataArr.filter((dataObj => dataObj.category == 'lowerBody'))
+  if (workoutSelect == "upperBody") {upperBody.forEach(createTable)}
+  if(workoutSelect == "lowerBody"){
+    lowerBody.forEach(createTable)}}
 
 
 
@@ -62,18 +38,19 @@ async function createTable(exerciseObj){
          <td class="padding">
          <form id='form-${exerciseObj.id}'>
          <input type="text" placeholder="pounds" id='${exerciseObj.id}'/>
-         <input type="submit" value="Update"/>
+         <button type="submit">Update</button>
        </form>
         </td>`
     table.append(tr)
   }
 
+
 let weight = document.getElementById(`form-${exerciseObj.id}`)
 
 
 weight.addEventListener('submit', (e) => {
-  console.log(e.target)
-  e.preventDefault();
+  console.log(e.target[0].value)
+  e.preventDefault()
   let weightUpdate = e.target[0].value
   exerciseObj.weight = weightUpdate
   updateAmount(exerciseObj)
@@ -102,5 +79,6 @@ async function updateAmount(exerciseObj){
       document.getElementById(`cell-${exerciseObj.id}`).innerHTML =
       `${exerciseObj.weight} pounds`
 }
+
 
 

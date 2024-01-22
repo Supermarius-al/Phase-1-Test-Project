@@ -59,8 +59,8 @@ weight.addEventListener('submit', (e) => {
 
 
 
-async function updateAmount(exerciseObj){
-  await fetch(`http://localhost:3000/workoutTypes/${exerciseObj.id}`,{
+ function updateAmount(exerciseObj){
+   fetch(`http://localhost:3000/workoutTypes/${exerciseObj.id}`,{
        method: 'PATCH',
        headers: {
            'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ async function updateAmount(exerciseObj){
 
   
 
-  async function refreshTable(exerciseObj){ 
+function refreshTable(exerciseObj){ 
       document.getElementById(`cell-${exerciseObj.id}`).innerHTML =
       `${exerciseObj.weight} pounds`
 }

@@ -1,34 +1,47 @@
-let table = document.querySelector("#workout-routine")
-let sets = document.getElementById('sets')
+const table = document.querySelector("#workout-routine")
+const sets = document.getElementById('sets')
 const selectBtn = document.getElementById('workout-select')
 
 
 document.addEventListener("DOMContentLoaded", (e) => {e.preventDefault()
 selectBtn.addEventListener('click', (e) =>{
-
-
 let workoutSelect = document.querySelector('input[type="radio"]:checked').value
 table.innerHTML = ``
 fetchData(workoutSelect)
 e.preventDefault()
 })})
-
-async function fetchData(workoutSelect){
-  let dataArr
-  await fetch("http://localhost:3000/workoutTypes")
+console.log('hi')
+async function fetchData(input){
+  let dataArr 
+  console.log('hello')
+ /* await fetch("http://localhost:3000/workoutTypes")
     .then(resp => resp.json())
-    .then(data => dataArr = data)
+    .then(data => {dataArr = data 
+    console.log('howdy')})
+console.log('hey')
+  const upperBody = dataArr.filter((dataObj => dataObj.category == 'upperBody'))
+  const lowerBody = dataArr.filter((dataObj => dataObj.category == 'lowerBody'))
+  if (input == "upperBody") {upperBody.forEach(createRow)}
+  if(input == "lowerBody"){
+    lowerBody.forEach(createRow)}
+  */
+ fetch("http://localhost:3000/workoutTypes")
+    .then(resp => resp.json())
+    .then(data => {dataArr = data 
+      debugger
+  const upperBody = dataArr.filter((dataObj => dataObj.category == 'upperBody'))
+  const lowerBody = dataArr.filter((dataObj => dataObj.category == 'lowerBody'))
+  if (input == "upperBody") {upperBody.forEach(createRow)}
+  if(input == "lowerBody"){
+    lowerBody.forEach(createRow)}
+    console.log('howdy')})
+console.log('hey')
+  }
 
-  let upperBody = dataArr.filter((dataObj => dataObj.category == 'upperBody'))
-  let lowerBody = dataArr.filter((dataObj => dataObj.category == 'lowerBody'))
-  if (workoutSelect == "upperBody") {upperBody.forEach(createTable)}
-  if(workoutSelect == "lowerBody"){
-    lowerBody.forEach(createTable)}}
 
 
-
-async function createTable(exerciseObj){
-       {
+async function createRow(exerciseObj){
+       
             let tr = document.createElement('tr')
             tr.setAttribute("id", `row-${exerciseObj.id}`)
              tr.innerHTML = 
@@ -42,9 +55,8 @@ async function createTable(exerciseObj){
        </form>
         </td>`
     table.append(tr)
-  }
 
-
+console.log(tr)
 let weight = document.getElementById(`form-${exerciseObj.id}`)
 
 

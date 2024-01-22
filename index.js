@@ -10,32 +10,20 @@ table.innerHTML = ``
 fetchData(workoutSelect)
 e.preventDefault()
 })})
-console.log('hi')
 async function fetchData(input){
   let dataArr 
-  console.log('hello')
- /* await fetch("http://localhost:3000/workoutTypes")
-    .then(resp => resp.json())
-    .then(data => {dataArr = data 
-    console.log('howdy')})
-console.log('hey')
-  const upperBody = dataArr.filter((dataObj => dataObj.category == 'upperBody'))
-  const lowerBody = dataArr.filter((dataObj => dataObj.category == 'lowerBody'))
-  if (input == "upperBody") {upperBody.forEach(createRow)}
-  if(input == "lowerBody"){
-    lowerBody.forEach(createRow)}
-  */
+ 
  fetch("http://localhost:3000/workoutTypes")
     .then(resp => resp.json())
     .then(data => {dataArr = data 
-      debugger
+
   const upperBody = dataArr.filter((dataObj => dataObj.category == 'upperBody'))
   const lowerBody = dataArr.filter((dataObj => dataObj.category == 'lowerBody'))
   if (input == "upperBody") {upperBody.forEach(createRow)}
   if(input == "lowerBody"){
     lowerBody.forEach(createRow)}
-    console.log('howdy')})
-console.log('hey')
+  })
+
   }
 
 
@@ -56,7 +44,6 @@ async function createRow(exerciseObj){
         </td>`
     table.append(tr)
 
-console.log(tr)
 let weight = document.getElementById(`form-${exerciseObj.id}`)
 
 

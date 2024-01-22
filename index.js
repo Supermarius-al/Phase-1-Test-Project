@@ -3,22 +3,22 @@ const sets = document.getElementById('sets')
 const selectBtn = document.getElementById('workout-select')
 
 
-document.addEventListener("DOMContentLoaded", (e) => {e.preventDefault()
+document.addEventListener("DOMContentLoaded", (e) => {
+
 selectBtn.addEventListener('click', (e) =>{
 let workoutSelect = document.querySelector('input[type="radio"]:checked').value
 table.innerHTML = ``
 fetchData(workoutSelect)
 e.preventDefault()
 })})
-async function fetchData(input){
-  let dataArr 
- 
+
+
+ function fetchData(input){
  fetch("http://localhost:3000/workoutTypes")
     .then(resp => resp.json())
-    .then(data => {dataArr = data 
-
-  const upperBody = dataArr.filter((dataObj => dataObj.category == 'upperBody'))
-  const lowerBody = dataArr.filter((dataObj => dataObj.category == 'lowerBody'))
+    .then(data => {
+  const upperBody = data.filter((dataObj => dataObj.category == 'upperBody'))
+  const lowerBody = data.filter((dataObj => dataObj.category == 'lowerBody'))
   if (input == "upperBody") {upperBody.forEach(createRow)}
   if(input == "lowerBody"){
     lowerBody.forEach(createRow)}
@@ -27,8 +27,7 @@ async function fetchData(input){
   }
 
 
-
-async function createRow(exerciseObj){
+ function createRow(exerciseObj){
        
             let tr = document.createElement('tr')
             tr.setAttribute("id", `row-${exerciseObj.id}`)
